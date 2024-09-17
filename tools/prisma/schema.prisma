@@ -32,6 +32,7 @@ model User {
   provider         Provider
   secrets          Secrets?
   resumes          Resume[]
+  smartTables      SmartTable[]
 }
 
 model Secrets {
@@ -77,4 +78,30 @@ model Statistics {
   updatedAt DateTime @updatedAt
 
   @@unique([resumeId, id])
+}
+
+model SmartTable {
+  id        String   @id @default(cuid())
+  title     String
+  data      Json     @default("{}")
+  fileUrl   String?  // 新增字段
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  chats     Chat[]
+
+  @@unique([userId, id])
+  @@index(fields: [userId])
+}
+
+model Chat {
+  id           String     @id @default(cuid())
+  message      String
+  isUser       Boolean
+  smartTableId String
+  smartTable   SmartTable @relation(fields: [smartTableId], references: [id], onDelete: Cascade)
+  createdAt    DateTime   @default(now())
+
+  @@index(fields: [smartTableId])
 }

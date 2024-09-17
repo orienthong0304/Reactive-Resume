@@ -17,4 +17,9 @@ export enum ErrorMessage {
   ResumePrinterError = "ResumePrinterError",
   ResumePreviewError = "ResumePreviewError",
   SomethingWentWrong = "SomethingWentWrong",
+  EmptyExcelFile = "EmptyExcelFile",
+  InvalidFileFormat = "InvalidFileFormat",
+  SmartTableNotFound = "SmartTableNotFound",
+  SmartTableTitleAlreadyExists = "SmartTableTitleAlreadyExists",
+  FileRequired = "FileRequired",
 }

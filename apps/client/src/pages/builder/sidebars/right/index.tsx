@@ -49,7 +49,7 @@ export const RightSidebar = () => {
           <Separator />
           <InformationSection />
           <Separator />
-          <Copyright className="text-center" />
+          {/* <Copyright className="text-center" /> */}
         </div>
       </ScrollArea>
 

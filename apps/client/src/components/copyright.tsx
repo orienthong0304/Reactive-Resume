@@ -14,20 +14,7 @@ export const Copyright = ({ className }: Props) => (
   >
     <span>
       <Trans>
-        Licensed under{" "}
-        <a
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-          href="https://github.com/AmruthPillai/Reactive-Resume/blob/main/LICENSE.md"
-        >
-          MIT
-        </a>
-      </Trans>
-    </span>
-    <span>{t`By the community, for the community.`}</span>
-    <span>
-      <Trans>
-        A passion project by <a href="https://www.amruthpillai.com/">Amruth Pillai</a>
+        A passion project by <a href="https://www.orienthong.cn/">Orient Hong</a>
       </Trans>
     </span>
 

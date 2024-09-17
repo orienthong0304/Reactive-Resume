@@ -14,7 +14,8 @@ import { Config } from "../config/schema";
 
 type ImageUploadType = "pictures" | "previews";
 type DocumentUploadType = "resumes";
-export type UploadType = ImageUploadType | DocumentUploadType;
+type SmartTableUploadType = "smart-tables";
+export type UploadType = ImageUploadType | DocumentUploadType | SmartTableUploadType;
 
 const PUBLIC_ACCESS_POLICY = {
   Version: "2012-10-17",
@@ -173,6 +174,27 @@ export class StorageService implements OnModuleInit {
       throw new InternalServerErrorException(
         `There was an error while deleting the folder at the specified path: ${this.bucketName}/${prefix}.`,
       );
+    }
+  }
+
+  async uploadFile(
+    type: UploadType,
+    fileName: string,
+    buffer: Buffer,
+    mimetype: string,
+  ): Promise<string> {
+    const storageUrl = this.configService.getOrThrow<string>("STORAGE_URL");
+    const filepath = `${type}/${fileName}`;
+    const url = `${storageUrl}/${filepath}`;
+
+    try {
+      await this.client.putObject(this.bucketName, filepath, buffer, {
+        'Content-Type': mimetype,
+      });
+
+      return url;
+    } catch (error) {
+      throw new InternalServerErrorException("There was an error while uploading the file.");
     }
   }
 }

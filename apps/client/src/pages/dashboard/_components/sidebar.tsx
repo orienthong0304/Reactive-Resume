@@ -80,6 +80,11 @@ export const Sidebar = ({ setOpen }: SidebarProps) => {
     setOpen?.(false);
   });
 
+  useKeyboardShortcut(["shift", "t"], () => {
+    navigate("/dashboard/smart-tables");
+    setOpen?.(false);
+  });
+
   const sidebarItems: SidebarItem[] = [
     {
       path: "/dashboard/resumes",
@@ -91,6 +96,12 @@ export const Sidebar = ({ setOpen }: SidebarProps) => {
       path: "/dashboard/settings",
       name: t`Settings`,
       shortcut: "⇧S",
+      icon: <FadersHorizontal />,
+    },
+    {
+      path: "/dashboard/smart-tables",
+      name: t`Smart Tables`,
+      shortcut: "⇧T",
       icon: <FadersHorizontal />,
     },
   ];
@@ -124,7 +135,7 @@ export const Sidebar = ({ setOpen }: SidebarProps) => {
         </Button>
       </UserOptions>
 
-      <Copyright className="ml-2" />
+      {/* <Copyright className="ml-2" /> */}
     </div>
   );
 };

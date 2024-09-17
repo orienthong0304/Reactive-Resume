@@ -1,8 +1,8 @@
 import { t } from "@lingui/macro";
 import { Separator } from "@reactive-resume/ui";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-import { Copyright } from "@/client/components/copyright";
+// import { Copyright } from "@/client/components/copyright";
 import { LocaleSwitch } from "@/client/components/locale-switch";
 import { Logo } from "@/client/components/logo";
 import { ThemeSwitch } from "@/client/components/theme-switch";
@@ -15,17 +15,17 @@ export const Footer = () => (
       <div className="flex flex-col gap-y-2">
         <Logo size={96} className="-ml-2" />
 
-        <h2 className="text-xl font-medium">{t`Reactive Resume`}</h2>
+        <h2 className="text-xl font-medium">{t`在线简历`}</h2>
 
         <p className="prose prose-sm prose-zinc leading-relaxed opacity-60 dark:prose-invert">
-          {t`A free and open-source resume builder that simplifies the process of creating, updating, and sharing your resume.`}
+          {t`一款基于Reactive Resume的在线简历生成器，旨在简化简历创建、更新和共享的过程。`}
         </p>
 
-        <Copyright className="mt-6" />
+        {/* <Copyright className="mt-6" /> */}
       </div>
 
       <div className="relative col-start-4 flex flex-col items-end justify-end">
-        <div className="mb-14 space-y-6 text-right">
+        {/* <div className="mb-14 space-y-6 text-right">
           <a
             className="block"
             href="https://www.digitalocean.com/?utm_medium=opensource&utm_source=Reactive-Resume"
@@ -48,10 +48,10 @@ export const Footer = () => (
             to="/meta/privacy-policy"
             className="block text-sm font-medium"
           >{t`Privacy Policy`}</Link>
-        </div>
+        </div> */}
 
         <div className="absolute bottom-0 right-0 lg:space-x-2">
-          <LocaleSwitch />
+          {/* <LocaleSwitch /> */}
           <ThemeSwitch />
         </div>
       </div>
